@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.3",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.0",
+    "dayjs": "^1.8.17",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
@@ -34,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"https://us-central1-socialsneakers.cloudfunctions.net/api"
+  "proxy": "https://us-central1-socialsneakers.cloudfunctions.net/api"
 }

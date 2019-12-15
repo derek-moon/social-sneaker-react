@@ -30,6 +30,12 @@ class login extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.props.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
+    }
+  }
+
   handleSubmit = event => {
     event.preventDefault();
 

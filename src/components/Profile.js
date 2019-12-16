@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 //MUI
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import IconButton from "@material-ui/core/IconButton";
 
 import MuiLink from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
@@ -17,12 +18,21 @@ import { connect } from "react-redux";
 import LocationOn from "@material-ui/icons/LocationOn";
 import LinkIcon from "@material-ui/icons/Link";
 import CalendarToday from "@material-ui/icons/CalendarToday";
+import EditIcon from "@material-ui/icons/Edit";
 
 const styles = theme => ({
   ...theme.spreadIt
 });
 
 class Profile extends Component {
+  handleImageChange = event => {
+    const image = event.target.files[0];
+    //send to server
+  };
+  handleEditPicture = () => {
+    const fileInput = document.getElementById("imageInput");
+    fileInput.click();
+  };
   render() {
     const {
       classes,
@@ -39,6 +49,15 @@ class Profile extends Component {
           <div className={classes.profile}>
             <div className="image-wrapper">
               <img className="profile-image" src={imageUrl} alt="profile" />
+              <input
+                type="file"
+                id="imageInput"
+                hidden="hidden"
+                onChange={this.handleImageChange}
+              />
+              <IconButton onClick={this.handleEditPicture} className="button">
+                <EditIcon color="primary" />
+              </IconButton>
             </div>
             <hr />
             <div className="profile-details">

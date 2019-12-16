@@ -137,7 +137,7 @@ class Profile extends Component {
         </Paper>
       )
     ) : (
-      <p>loadinnng....</p>
+      <p>loading....</p>
     );
 
     return profileMarkup;

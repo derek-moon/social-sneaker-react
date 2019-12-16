@@ -15,7 +15,10 @@ import EditIcon from "@material-ui/icons/Edit";
 import Dialog from "@material-ui/core/Dialog";
 
 const styles = theme => ({
-  ...theme.spreadIt
+  ...theme.spreadIt,
+  button: {
+    float: "right"
+  }
 });
 
 class EditDetails extends Component {

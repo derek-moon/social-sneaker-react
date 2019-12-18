@@ -27,12 +27,14 @@ export const loginUser = (userData, history) => dispatch => {
     });
 };
 
+//removes Authen Token and request header
 export const logoutUser = () => dispatch => {
   localStorage.removeItem("FBIdToken");
   delete axios.defaults.headers.common["Authorization"];
   dispatch({ type: SET_UNAUTHENTICATED });
 };
 
+//Retrieves data from the database server
 export const getUserData = () => dispatch => {
   dispatch({ type: LOADING_USER });
   axios

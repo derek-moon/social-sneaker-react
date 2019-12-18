@@ -29,12 +29,15 @@ const styles = theme => ({
 });
 
 class Profile extends Component {
+  //updates database
   handleImageChange = event => {
     const image = event.target.files[0];
     const formData = new FormData();
     formData.append("image", image, image.name);
     this.props.uploadImage(formData);
   };
+
+  //clicks on the hidden image upload icon
   handleEditPicture = () => {
     const fileInput = document.getElementById("imageInput");
     fileInput.click();

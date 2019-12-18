@@ -36,7 +36,8 @@ class EditDetails extends Component {
       location: credentials.location ? credentials.location : ""
     });
   };
-  //once component mounts get details and assign details
+
+  //Once component mounts get user details and assign user details
   handleOpen = () => {
     this.setState({ open: true });
     this.mapUserDetailsToState(this.props.credentials);
@@ -44,6 +45,7 @@ class EditDetails extends Component {
   handleClose = () => {
     this.setState({ open: false });
   };
+
   componentDidMount() {
     const { credentials } = this.props;
     this.mapUserDetailsToState(credentials);

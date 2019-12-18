@@ -5,6 +5,7 @@ import {
   LOADING_USER
 } from "../types";
 
+//Initial state of the user
 const initialState = {
   authenticated: false,
   loading: false,

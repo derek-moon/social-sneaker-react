@@ -2,7 +2,9 @@ import {
   SET_USER,
   SET_UNAUTHENTICATED,
   SET_AUTHENTICATED,
-  LOADING_USER
+  LOADING_USER,
+  LIKE_SCREAM,
+  UNLIKE_SCREAM
 } from "../types";
 
 //Initial state of the user
@@ -33,6 +35,29 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+
+    case LIKE_SCREAM:
+      return {
+        ...state,
+        //returns state but also new 'like' on scream w/ user handle
+        likes: [
+          ...state.likes,
+          {
+            userHandle: state.credentials.handle,
+            screamId: action.payload.screamId
+          }
+        ]
+      };
+
+    case UNLIKE_SCREAM:
+      return {
+        ...state,
+        //removes one like from the scream
+        likes: state.likes.filter(
+          like => like.screamId === action.payload.screamId
+        )
+      };
+
     default:
       return state;
   }

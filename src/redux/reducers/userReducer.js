@@ -52,9 +52,9 @@ export default function(state = initialState, action) {
     case UNLIKE_SCREAM:
       return {
         ...state,
-        //removes one like from the scream
+        //removes like from scream and leaves the rest
         likes: state.likes.filter(
-          like => like.screamId === action.payload.screamId
+          like => like.screamId !== action.payload.screamId
         )
       };
 

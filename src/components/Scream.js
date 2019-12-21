@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
+import DeleteScream from "./DeleteScream";
 
 //MUI STUFF
 import Card from "@material-ui/core/Card";
@@ -24,7 +25,8 @@ import MyButton from "../util/MyButton";
 const styles = {
   card: {
     display: "flex",
-    marginBottom: 20
+    marginBottom: 20,
+    position: "relative"
   },
   image: {
     minWidth: 200
@@ -70,7 +72,10 @@ class Scream extends Component {
         likeCount,
         commentCount
       },
-      user: { authenticated }
+      user: {
+        authenticated,
+        credentials: { handle }
+      }
     } = this.props;
 
     //if user is not logged in, redirects to login page
@@ -91,6 +96,12 @@ class Scream extends Component {
       </MyButton>
     );
 
+    //depends on whether user is logged in and if user owns the scream
+    const deleteButton =
+      authenticated && userHandle === handle ? (
+        <DeleteScream screamId={screamId} />
+      ) : null;
+
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -107,6 +118,7 @@ class Scream extends Component {
           >
             {userHandle}
           </Typography>
+          {deleteButton}
           <Typography variant="body2" color="textSecondary">
             {dayjs(createdAt).fromNow()}
           </Typography>

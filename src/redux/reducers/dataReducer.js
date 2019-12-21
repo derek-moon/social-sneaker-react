@@ -2,7 +2,8 @@ import {
   SET_SCREAMS,
   LIKE_SCREAM,
   UNLIKE_SCREAM,
-  LOADING_DATA
+  LOADING_DATA,
+  DELETE_SCREAM
 } from "../types";
 
 //array that contains all screams, home or user
@@ -32,6 +33,14 @@ export default function(state = initialState, action) {
       );
       //replace scream in state w/ scream payload
       state.screams[index] = action.payload;
+      return {
+        ...state
+      };
+    case DELETE_SCREAM:
+      index = state.screams.findIndex(
+        scream => scream.screamId === action.payload
+      );
+      state.screams.splice(index, 1);
       return {
         ...state
       };

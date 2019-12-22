@@ -1,11 +1,11 @@
 Social Media Application
 This app was creating using a backend REST API server with Node.js and Express. React with Redux on the client side.
-1. Create an account
-2. Login via Firebase user:pass authentication
-3. Create blog posts 
-4. Image uploads with Dialogue to Profile 
-5. Notifications 
-6. Cloud functions to store data on each post
+- Create an account
+- Login via Firebase user:pass authentication
+- Create blog posts 
+- Image uploads with Dialogue to Profile 
+- Notifications 
+- Cloud functions to store data on each post
 
 ## Tools used
 - Javascript 

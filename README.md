@@ -4,8 +4,8 @@ This app was creating using a backend REST API server with Node.js and Express. 
 
 ## Features:
 
-#Create an account
--Login via Firebase user:pass authentication
+# Create an account
+# Login via Firebase user:pass authentication
 -Create blog posts 
 -Image uploads with Dialogue to Profile 
 -Notifications 

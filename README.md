@@ -1,4 +1,5 @@
- - Social Media Application featuring 
+## Social Media Application
+This app was creating using a backend REST API server with Node.js and Express. React with Redux on the client side.
 
 
 ## Social Media Application with the the following features:
@@ -8,7 +9,7 @@
 -Create blog posts 
 -Image uploads with Dialogue to Profile 
 -Notifications 
--Use Cloud functions to sotre data on each post
+-Use Cloud functions to store data on each post
 
 ## Tools used
 -Javascript -Firebase -Express -Axios -React -Redux -Material IU

@@ -1,10 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ - Social Media Application when users were able to: #     -Create an account  #     -Login via Firebase user:pass authentication #     -Create blog posts where other users could like and comment on the post #     -Image uploads with Dialogue  #     -Notifications #     -Cloud functions. Tools used: # -Javascript -Firebase -Express -Axios   # -React -Redux -Material IU
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
+## Description
+Social Media Application when users were able to:
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

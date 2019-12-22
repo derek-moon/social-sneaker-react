@@ -1,12 +1,12 @@
- - Social Media Application when users were able to: #      : # 
+ - Social Media Application featuring 
 
 ## Description
-Social Media Application when users were able to:
+Social Media Application with the the following features:
 
 -Create an account
 -Login via Firebase user:pass authentication
--Create blog posts where other users could like and comment on the post
--Image uploads with Dialogue 
+-Create blog posts 
+-Image uploads with Dialogue to Profile 
 -Notifications 
 -Use Cloud functions to sotre data on each post
 

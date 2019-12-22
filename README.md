@@ -1,4 +1,4 @@
-Social Media Application
+##Social Media Application
 This app was creating using a backend REST API server with Node.js and Express. React with Redux on the client side.
 - Create an account
 - Login via Firebase user:pass authentication

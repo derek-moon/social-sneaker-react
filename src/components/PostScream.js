@@ -45,12 +45,16 @@ class PostScream extends Component {
         errors: nextProps.UI.errors
       });
     }
+    if (!nextProps.UI.errors && !nextProps.UI.loading) {
+      this.setState({ body: "" });
+      this.handleClose();
+    }
   }
   handleOpen = () => {
     this.setState({ open: true });
   };
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false, errors: {} });
   };
 
   handleChange = event => {
@@ -87,7 +91,7 @@ class PostScream extends Component {
           </MyButton>
           <DialogTitle>Post a new scream</DialogTitle>
           <DialogContent>
-            <form onSumbit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <TextField
                 name="body"
                 type="text"

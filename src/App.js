@@ -18,7 +18,7 @@ import Navbar from "./components/Navbar";
 import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
-import { SET_AUTHENTICATED, SET_UNAUTHENTICATED } from "./redux/types";
+import { SET_AUTHENTICATED } from "./redux/types";
 import { logoutUser, getUserData } from "./redux/actions/userActions";
 import axios from "axios";
 

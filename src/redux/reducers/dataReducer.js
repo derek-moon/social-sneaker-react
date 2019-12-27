@@ -4,7 +4,8 @@ import {
   UNLIKE_SCREAM,
   LOADING_DATA,
   DELETE_SCREAM,
-  POST_SCREAM
+  POST_SCREAM,
+  SET_SCREAM
 } from "../types";
 
 //array that contains all screams, home or user
@@ -26,6 +27,11 @@ export default function(state = initialState, action) {
         //payload from res.data of GETALLSCREAM
         screams: action.payload,
         loading: false
+      };
+    case SET_SCREAM:
+      return {
+        ...state,
+        scream: action.payload
       };
     case LIKE_SCREAM:
     case UNLIKE_SCREAM:

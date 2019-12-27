@@ -70,7 +70,7 @@ class signup extends Component {
       <Grid container className={classes.form}>
         <Grid item sm />
         <Grid item sm>
-          <img src={AppIcon} alt="monkey image" className={classes.image} />
+          <img src={AppIcon} alt="sneaker" className={classes.image} />
           <Typography variant="h2" className={classes.pageTitle}>
             Signup
           </Typography>

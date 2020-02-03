@@ -5,15 +5,16 @@ import {
   LOADING_DATA,
   DELETE_SCREAM,
   POST_SCREAM,
-  SET_SCREAM
-} from "../types";
+  SET_SCREAM,
+  SUBMIT_COMMENT
+} from '../types';
 
-//array that contains all screams, home or user
 const initialState = {
   screams: [],
   scream: {},
   loading: false
 };
+
 export default function(state = initialState, action) {
   switch (action.type) {
     case LOADING_DATA:
@@ -24,7 +25,6 @@ export default function(state = initialState, action) {
     case SET_SCREAMS:
       return {
         ...state,
-        //payload from res.data of GETALLSCREAM
         screams: action.payload,
         loading: false
       };
@@ -36,28 +36,36 @@ export default function(state = initialState, action) {
     case LIKE_SCREAM:
     case UNLIKE_SCREAM:
       let index = state.screams.findIndex(
-        scream => scream.screamId === action.payload.screamId
+        (scream) => scream.screamId === action.payload.screamId
       );
-      //replace scream in state w/ scream payload
       state.screams[index] = action.payload;
+      if (state.scream.screamId === action.payload.screamId) {
+        state.scream = action.payload;
+      }
       return {
         ...state
       };
     case DELETE_SCREAM:
       index = state.screams.findIndex(
-        scream => scream.screamId === action.payload
+        (scream) => scream.screamId === action.payload
       );
       state.screams.splice(index, 1);
       return {
         ...state
       };
     case POST_SCREAM:
-      //add to screams array
       return {
         ...state,
         screams: [action.payload, ...state.screams]
       };
-
+    case SUBMIT_COMMENT:
+      return {
+        ...state,
+        scream: {
+          ...state.scream,
+          comments: [action.payload, ...state.scream.comments]
+        }
+      };
     default:
       return state;
   }

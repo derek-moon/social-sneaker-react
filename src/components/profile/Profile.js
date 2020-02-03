@@ -4,39 +4,34 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import EditDetails from "./EditDetails";
-//MUI
+import MyButton from "../../util/MyButton";
+import ProfileSkeleton from "../../util/ProfileSkeleton";
+// MUI stuff
 import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
-
-import MuiLink from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
-
-//redux
-import { connect } from "react-redux";
-import { logoutUser, uploadImage } from "../redux/actions/userActions";
-
-//icons
+import MuiLink from "@material-ui/core/Link";
+import Paper from "@material-ui/core/Paper";
+// Icons
 import LocationOn from "@material-ui/icons/LocationOn";
 import LinkIcon from "@material-ui/icons/Link";
 import CalendarToday from "@material-ui/icons/CalendarToday";
 import EditIcon from "@material-ui/icons/Edit";
 import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
-import MyButton from "../util/MyButton";
+//Redux
+import { connect } from "react-redux";
+import { logoutUser, uploadImage } from "../../redux/actions/userActions";
 
 const styles = theme => ({
   ...theme.spreadIt
 });
 
 class Profile extends Component {
-  //updates database
   handleImageChange = event => {
     const image = event.target.files[0];
     const formData = new FormData();
     formData.append("image", image, image.name);
     this.props.uploadImage(formData);
   };
-
-  //clicks on the hidden image upload icon
   handleEditPicture = () => {
     const fileInput = document.getElementById("imageInput");
     fileInput.click();
@@ -59,7 +54,7 @@ class Profile extends Component {
         <Paper className={classes.paper}>
           <div className={classes.profile}>
             <div className="image-wrapper">
-              <img className="profile-image" src={imageUrl} alt="profile" />
+              <img src={imageUrl} alt="profile" className="profile-image" />
               <input
                 type="file"
                 id="imageInput"
@@ -67,14 +62,13 @@ class Profile extends Component {
                 onChange={this.handleImageChange}
               />
               <MyButton
-                tip="Edit Profile Picture"
+                tip="Edit profile picture"
                 onClick={this.handleEditPicture}
                 btnClassName="button"
               >
                 <EditIcon color="primary" />
               </MyButton>
             </div>
-            {/* hidden button gets pressed  */}
             <hr />
             <div className="profile-details">
               <MuiLink
@@ -86,7 +80,7 @@ class Profile extends Component {
                 @{handle}
               </MuiLink>
               <hr />
-              {bio && <Typography varient="body2">{bio}</Typography>}
+              {bio && <Typography variant="body2">{bio}</Typography>}
               <hr />
               {location && (
                 <Fragment>
@@ -97,7 +91,7 @@ class Profile extends Component {
               {website && (
                 <Fragment>
                   <LinkIcon color="primary" />
-                  <a href={website} target="_blank" rel="noopener noreferer">
+                  <a href={website} target="_blank" rel="noopener noreferrer">
                     {" "}
                     {website}
                   </a>
@@ -107,18 +101,16 @@ class Profile extends Component {
               <CalendarToday color="primary" />{" "}
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
             </div>
-
             <MyButton tip="Logout" onClick={this.handleLogout}>
               <KeyboardReturn color="primary" />
             </MyButton>
-
             <EditDetails />
           </div>
         </Paper>
       ) : (
         <Paper className={classes.paper}>
           <Typography variant="body2" align="center">
-            No profile found. Please signup or login
+            No profile found, please login again
           </Typography>
           <div className={classes.buttons}>
             <Button
@@ -127,11 +119,11 @@ class Profile extends Component {
               component={Link}
               to="/login"
             >
-              login
+              Login
             </Button>
             <Button
               variant="contained"
-              color="seconday"
+              color="secondary"
               component={Link}
               to="/signup"
             >
@@ -141,7 +133,7 @@ class Profile extends Component {
         </Paper>
       )
     ) : (
-      <p>loading....</p>
+      <ProfileSkeleton />
     );
 
     return profileMarkup;

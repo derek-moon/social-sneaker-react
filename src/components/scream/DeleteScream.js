@@ -1,27 +1,25 @@
-import React, { Component, Fragment } from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
+import React, { Component, Fragment } from 'react';
+import withStyles from '@material-ui/core/styles/withStyles';
+import PropTypes from 'prop-types';
+import MyButton from '../../util/MyButton';
 
-import PropTypes from "prop-types";
-import MyButton from "../util/MyButton";
+// MUI Stuff
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogActions from '@material-ui/core/DialogActions';
+import DeleteOutline from '@material-ui/icons/DeleteOutline';
 
-//MUI
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogActions from "@material-ui/core/DialogActions";
-import DeleteOutline from "@material-ui/icons/DeleteOutline";
+import { connect } from 'react-redux';
+import { deleteScream } from '../../redux/actions/dataActions';
 
-import { connect } from "react-redux";
-import { deleteScream } from "../redux/actions/dataActions";
-
-const style = theme => ({
-  ...theme.spreadIt,
+const styles = {
   deleteButton: {
-    position: "absolute",
-    left: "90%",
-    top: "10%"
+    position: 'absolute',
+    left: '90%',
+    top: '10%'
   }
-});
+};
 
 class DeleteScream extends Component {
   state = {
@@ -30,18 +28,16 @@ class DeleteScream extends Component {
   handleOpen = () => {
     this.setState({ open: true });
   };
-
   handleClose = () => {
     this.setState({ open: false });
   };
-
   deleteScream = () => {
     this.props.deleteScream(this.props.screamId);
     this.setState({ open: false });
   };
-
   render() {
     const { classes } = this.props;
+
     return (
       <Fragment>
         <MyButton
@@ -58,7 +54,7 @@ class DeleteScream extends Component {
           maxWidth="sm"
         >
           <DialogTitle>
-            Are you sure you want to delete this scream?
+            Are you sure you want to delete this scream ?
           </DialogTitle>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
@@ -80,4 +76,7 @@ DeleteScream.propTypes = {
   screamId: PropTypes.string.isRequired
 };
 
-export default connect(null, { deleteScream })(withStyles(style)(DeleteScream));
+export default connect(
+  null,
+  { deleteScream }
+)(withStyles(styles)(DeleteScream));

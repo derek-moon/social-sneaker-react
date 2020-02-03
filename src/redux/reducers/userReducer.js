@@ -1,13 +1,13 @@
 import {
   SET_USER,
-  SET_UNAUTHENTICATED,
   SET_AUTHENTICATED,
+  SET_UNAUTHENTICATED,
   LOADING_USER,
   LIKE_SCREAM,
-  UNLIKE_SCREAM
-} from "../types";
+  UNLIKE_SCREAM,
+  MARK_NOTIFICATIONS_READ
+} from '../types';
 
-//Initial state of the user
 const initialState = {
   authenticated: false,
   loading: false,
@@ -15,6 +15,7 @@ const initialState = {
   likes: [],
   notifications: []
 };
+
 export default function(state = initialState, action) {
   switch (action.type) {
     case SET_AUTHENTICATED:
@@ -35,11 +36,9 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
-
     case LIKE_SCREAM:
       return {
         ...state,
-        //returns state but also new 'like' on scream w/ user handle
         likes: [
           ...state.likes,
           {
@@ -48,16 +47,18 @@ export default function(state = initialState, action) {
           }
         ]
       };
-
     case UNLIKE_SCREAM:
       return {
         ...state,
-        //removes like from scream and leaves the rest
         likes: state.likes.filter(
-          like => like.screamId !== action.payload.screamId
+          (like) => like.screamId !== action.payload.screamId
         )
       };
-
+    case MARK_NOTIFICATIONS_READ:
+      state.notifications.forEach((not) => (not.read = true));
+      return {
+        ...state
+      };
     default:
       return state;
   }

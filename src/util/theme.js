@@ -1,20 +1,18 @@
 export default {
   palette: {
     primary: {
-      light: "#a05050",
-      main: "#e57373",
-      dark: "#ea8f8f",
+      light: "#33c9dc",
+      main: "#00bcd4",
+      dark: "#008394",
       contrastText: "#fff"
     },
     secondary: {
-      light: "#9a1e00",
-      main: "#dd2c00",
-      dark: "#e35633",
+      light: "#ff6333",
+      main: "#ff3d00",
+      dark: "#b22a00",
       contrastText: "#fff"
     }
   },
-
-  //styles in theme login and signup page
   spreadIt: {
     typography: {
       useNextVariants: true

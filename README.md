@@ -16,4 +16,3 @@ This app was creating using a backend REST API server with Node.js and Express. 
 - Redux 
 - Material IU
 
-## App is not complete but I learned a lot and I will be implementing features from this project into my next one. 
